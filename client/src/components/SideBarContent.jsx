@@ -49,20 +49,24 @@ const SideBarContent = () => {
       </ComposeButton>
       <List>
         {SIDEBAR_DATA.map((data) => (
-          <ListItem
-            key={data.name}
-            style={
-              type === data.name.toLowerCase()
-                ? {
-                    backgroundColor: "#d3e3fd",
-                    borderRadius: "0 16px 16px 0",
-                  }
-                : {}
-            }
+          <NavLink
+            key={routes.emails.path}
+            to={`${routes.emails.path}/${data.name}`}
           >
-            <data.icon fontSize="small" />
-            {data.title}
-          </ListItem>
+            <ListItem
+              style={
+                type === data.name.toLowerCase()
+                  ? {
+                      backgroundColor: "#d3e3fd",
+                      borderRadius: "0 16px 16px 0",
+                    }
+                  : {}
+              }
+            >
+              <data.icon fontSize="small" />
+              {data.title}
+            </ListItem>
+          </NavLink>
         ))}
       </List>
       <ComposeMail open={openDrawer} setOpenDrawer={setOpenDrawer} />
